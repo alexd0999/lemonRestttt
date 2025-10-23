@@ -41,7 +41,7 @@ struct ReservationForm: View {
                                 Text("For parties larger than 8, we will call to confirm")
                                     .font(.caption)
                                     .foregroundColor(.red)
-                            } else if guestNumber >= 5 { // This handles 5, 6, 7, and 8
+                            } else if guestNumber >= 6 { 
                                 Text("For large parties, please arrive 10 minutes early")
                                     .font(.caption)
                                     .foregroundColor(.orange)

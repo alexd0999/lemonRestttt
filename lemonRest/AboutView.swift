@@ -14,7 +14,7 @@ struct AboutView: View {
                 Image("littleLemon")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 200)
+                    .frame(height: 150)
                 
                 Spacer()
             }

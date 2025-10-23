@@ -17,7 +17,7 @@ struct LoginView: View {
                 Image("littleLemon")
                     .resizable()
                     .scaledToFit()
-                    .frame(height:100)
+                    .frame(height:50)
 
                 TextField("Enter your username:", text:$userName)
                     .textFieldStyle(.roundedBorder)

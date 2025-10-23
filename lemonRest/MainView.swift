@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var uName = ""
+    @State private var userName = ""
     @State private var isLoggedIn = true
 
     var body: some View {
         NavigationView {
             if isLoggedIn == true {
                 VStack {
-                    Text("Welcome \(uName)")
+                    Text("Welcome \(userName)")
                         .font(.title)
                         .bold()
                     
@@ -28,7 +28,7 @@ struct MainView: View {
                     isLoggedIn = false
                 }
             } else {
-                LoginView(userName:$uName,isLoggedIn:$isLoggedIn)
+                LoginView(userName:$userName,isLoggedIn:$isLoggedIn)
             }
         }
     }
@@ -37,4 +37,3 @@ struct MainView: View {
 #Preview {
     MainView()
 }
-

@@ -14,7 +14,7 @@ struct ReservationSummaryView: View {
     @Binding var date:Date
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 15) {
             Text("Reservation Summary").font(.title)
             
             //adding information
@@ -23,7 +23,7 @@ struct ReservationSummaryView: View {
             Text("Allergies: \(allergiesNotes)")
             Text("Date: \(formattedDate(date:date))")
             
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 25) {
                        Text("Reservation Confirmed!")
                            .font(.largeTitle)
                            .bold()
