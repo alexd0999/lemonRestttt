@@ -23,6 +23,27 @@ struct ReservationSummaryView: View {
             Text("Allergies: \(allergiesNotes)")
             Text("Date: \(formattedDate(date:date))")
             
+        VStack(alignment: .leading, spacing: 20) {
+                       Text("Reservation Confirmed!")
+                           .font(.largeTitle)
+                           .bold()
+
+                       Text("Thank you, \(name), your reservation is confirmed for \(guest) people.")
+                           .font(.title3)
+
+                       if !allergiesNotes.isEmpty {
+                           Text("Note: We will accommodate the following allergies: \(allergiesNotes)")
+                               .font(.headline)
+                       }
+                       
+                       Text("Date & Time: \(formattedDate(date: date))")
+                           .font(.headline)
+                       
+                       Spacer()
+                   }
+                   .padding()
+                   .navigationTitle("Summary")
+               }
         }
     }
     
@@ -33,7 +54,6 @@ struct ReservationSummaryView: View {
         return formatter.string(from: date)
         
     }
-}
 
 #Preview {
     ReservationSummaryView(

@@ -11,12 +11,12 @@ struct AboutView: View {
                     .font(.title)
                     .padding()
                 
-                Image("littleLemon") // Make sure this matches your asset name!
+                Image("littleLemon")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 200)
                 
-                Spacer() // Pushes content to the top
+                Spacer()
             }
             .navigationTitle("About Us")
         }

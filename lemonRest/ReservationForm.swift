@@ -14,6 +14,8 @@ struct ReservationForm: View {
     @State private var allergiesNotes = ""
     @State private var showSummary = false
     
+    @State private var isDateInvalid = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -31,24 +33,41 @@ struct ReservationForm: View {
                         }
                         //view
                         Stepper("Guest: \(guestNumber)", value:
-                                    $guestNumber, in: 1...10)
-                        .padding(2)
-                        //validation
-                        if guestNumber > 5{
-                            Text("For parties contact 555-555-555")
-                                .font(.caption)
-                                .foregroundColor(.red)
-                        }
-                        //view
+                                     $guestNumber, in: 1...10)
+                            .padding(2)
+                            
+                            // validation
+                            if guestNumber > 8 {
+                                Text("For parties larger than 8, we will call to confirm")
+                                    .font(.caption)
+                                    .foregroundColor(.red)
+                            } else if guestNumber >= 5 { // This handles 5, 6, 7, and 8
+                                Text("For large parties, please arrive 10 minutes early")
+                                    .font(.caption)
+                                    .foregroundColor(.orange)
+                            }
+                            
+                            //view
                         DatePicker("Date", selection: $reservationDate, displayedComponents: [.date, .hourAndMinute])
-                        
-                        // Add a textfield to input allergies
+                            .onChange(of: reservationDate) {
+                                    isDateInvalid = reservationDate < Date()
+                                }
+                                
+                                // <-- ADD THESE 4 LINES HERE
+                                if isDateInvalid {
+                                    Text("Please select a valid date")
+                                        .font(.caption)
+                                        .foregroundColor(.red)
+                                }
+                                
+                            }
+                    
                         TextField("Allergies notes", text: $allergiesNotes)
                         
                         Button("Confirm Reservation") {
                             showSummary = true
                         }
-                        .disabled(userName.isEmpty)
+                        .disabled(userName.isEmpty || isDateInvalid)
                         .navigationDestination(isPresented:$showSummary){
                             ReservationSummaryView(
                                 name:$userName,
@@ -62,7 +81,7 @@ struct ReservationForm: View {
             }
         }
     }
-}
+
     #Preview {
         ReservationForm()
     }
