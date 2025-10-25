@@ -11,11 +11,6 @@ struct AboutView: View {
                     .font(.title)
                     .padding()
                 
-                Image("littleLemon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 150)
-                
                 Spacer()
             }
             .navigationTitle("About Us")

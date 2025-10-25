@@ -53,7 +53,6 @@ struct ReservationForm: View {
                                     isDateInvalid = reservationDate < Date()
                                 }
                                 
-                                // <-- ADD THESE 4 LINES HERE
                                 if isDateInvalid {
                                     Text("Please select a valid date")
                                         .font(.caption)

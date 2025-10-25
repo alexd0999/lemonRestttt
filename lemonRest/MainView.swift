@@ -8,27 +8,43 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var userName = ""
+    @State private var uName = ""
     @State private var isLoggedIn = true
 
     var body: some View {
         NavigationView {
             if isLoggedIn == true {
-                VStack {
-                    Text("Welcome \(userName)")
+                VStack(spacing: 20) {
+                    Text("Welcome \(uName)")
                         .font(.title)
                         .bold()
+                    
+                    Image("littleLemon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
                     
                     NavigationLink("Make a reservation",
                        destination:ReservationForm())
                     
-                    NavigationLink("About us", destination:AboutView())
+                    NavigationLink("Our Menu",
+                       destination: MenuView())
+
+                    NavigationLink("About us",
+                       destination:AboutView())
+                    
+                    Button("Logout") { //
+                        isLoggedIn = false
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    
                 }
-                Button("Logout") {
-                    isLoggedIn = false
-                }
+                .padding() 
             } else {
-                LoginView(userName:$userName,isLoggedIn:$isLoggedIn)
+                LoginView(userName:$uName,isLoggedIn:$isLoggedIn)
             }
         }
     }
