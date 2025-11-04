@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  lemonRest
 //
-//  Created by Alex Arthur on 10/23/25.
+//  Created by Alex Arthur on 01 Nov 25
 //
 
 import SwiftUI
@@ -12,21 +12,19 @@ struct LoginView: View {
     @Binding var isLoggedIn:Bool
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Image("littleLemon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height:100)
+        VStack {
+            Image("littleLemon")
+                .resizable()
+                .scaledToFit()
+                .frame(height:100)
 
-                TextField("Enter your username:", text:$userName)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
+            TextField("Enter your username:", text:$userName)
+                .textFieldStyle(.roundedBorder)
+                .padding()
 
-                Button("Login") {
-                    if userName == "Alex" {
-                        isLoggedIn = true
-                    }
+            Button("Login") {
+                if userName == "Alex" {
+                    isLoggedIn = true
                 }
             }
         }

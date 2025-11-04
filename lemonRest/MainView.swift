@@ -1,8 +1,11 @@
+
+
+
 //
 //  MainView.swift
 //  lemonRest
 //
-//  Created by Alex Arthur on 10/23/25.
+//  Created by Alex Arthur on 01 Nov 25
 //
 
 import SwiftUI
@@ -12,7 +15,7 @@ struct MainView: View {
     @State private var isLoggedIn = true
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             if isLoggedIn == true {
                 VStack(spacing: 20) {
                     Text("Welcome \(uName)")
@@ -30,10 +33,13 @@ struct MainView: View {
                     NavigationLink("Our Menu",
                        destination: MenuView())
 
+                    NavigationLink("Customer Profile",
+                       destination: CustomerSummaryView())
+                    
                     NavigationLink("About us",
                        destination:AboutView())
                     
-                    Button("Logout") { //
+                    Button("Logout") {
                         isLoggedIn = false
                     }
                     .padding()
@@ -42,7 +48,7 @@ struct MainView: View {
                     .cornerRadius(8)
                     
                 }
-                .padding() 
+                .padding()
             } else {
                 LoginView(userName:$uName,isLoggedIn:$isLoggedIn)
             }

@@ -2,7 +2,7 @@
 //  ReservationForm.swift
 //  lemonRest
 //
-//  Created by Alex Arthur on 10/23/25.
+//  Created by Alex Arthur on 10/28/25.
 //
 
 import SwiftUI
@@ -36,51 +36,50 @@ struct ReservationForm: View {
                                      $guestNumber, in: 1...10)
                             .padding(2)
                             
-                            // validation
-                            if guestNumber > 8 {
-                                Text("For parties larger than 8, we will call to confirm")
-                                    .font(.caption)
-                                    .foregroundColor(.red)
-                            } else if guestNumber >= 6 { 
-                                Text("For large parties, please arrive 10 minutes early")
-                                    .font(.caption)
-                                    .foregroundColor(.orange)
-                            }
-                            
-                            //view
+                        if guestNumber > 8 {
+                            Text("For parties larger than 8, we will call to confirm")
+                                .font(.caption)
+                                .foregroundColor(.red)
+                        } else if guestNumber >= 6 {
+                            Text("For large parties, please arrive 10 minutes early")
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                        }
+                        
+                        //view
                         DatePicker("Date", selection: $reservationDate, displayedComponents: [.date, .hourAndMinute])
                             .onChange(of: reservationDate) {
-                                    isDateInvalid = reservationDate < Date()
-                                }
-                                
-                                if isDateInvalid {
-                                    Text("Please select a valid date")
-                                        .font(.caption)
-                                        .foregroundColor(.red)
-                                }
-                                
+                                isDateInvalid = reservationDate < Date()
                             }
-                    
-                        TextField("Allergies notes", text: $allergiesNotes)
                         
-                        Button("Confirm Reservation") {
-                            showSummary = true
+                        if isDateInvalid {
+                            Text("Please select a valid date")
+                                .font(.caption)
+                                .foregroundColor(.red)
                         }
-                        .disabled(userName.isEmpty || isDateInvalid)
-                        .navigationDestination(isPresented:$showSummary){
-                            ReservationSummaryView(
-                                name:$userName,
-                                guest:$guestNumber,
-                                allergiesNotes:$allergiesNotes,
-                                date:$reservationDate)
-                            
-                        }
+                        
+                    }
+                    
+                    TextField("Allergies notes", text: $allergiesNotes)
+                    
+                    Button("Confirm Reservation") {
+                        showSummary = true
+                    }
+                    .disabled(userName.isEmpty || isDateInvalid)
+                    .navigationDestination(isPresented:$showSummary){
+                        ReservationSummaryView(
+                            name:$userName,
+                            guest:$guestNumber,
+                            allergiesNotes:$allergiesNotes,
+                            date:$reservationDate)
+                        
                     }
                 }
             }
         }
     }
+}
 
-    #Preview {
-        ReservationForm()
-    }
+#Preview {
+    ReservationForm()
+}

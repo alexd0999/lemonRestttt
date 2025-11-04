@@ -78,18 +78,18 @@
 				CB897EA32EAAA2BC00B98D4B /* lemonRest */,
 				CB897EB32EAAA2BD00B98D4B /* lemonRestTests */,
 				CB897EBD2EAAA2BD00B98D4B /* lemonRestUITests */,
-				CB897EA22EAAA2BC00B98D4B /* Products */,
+				CB897EA22EAAA2BC00B98D4B /* Practices */,
 			);
 			sourceTree = "<group>";
 		};
-		CB897EA22EAAA2BC00B98D4B /* Products */ = {
+		CB897EA22EAAA2BC00B98D4B /* Practices */ = {
 			isa = PBXGroup;
 			children = (
 				CB897EA12EAAA2BC00B98D4B /* lemonRest.app */,
 				CB897EB02EAAA2BD00B98D4B /* lemonRestTests.xctest */,
 				CB897EBA2EAAA2BD00B98D4B /* lemonRestUITests.xctest */,
 			);
-			name = Products;
+			name = Practices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +196,7 @@
 			mainGroup = CB897E982EAAA2BC00B98D4B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = CB897EA22EAAA2BC00B98D4B /* Products */;
+			productRefGroup = CB897EA22EAAA2BC00B98D4B /* Practices */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
